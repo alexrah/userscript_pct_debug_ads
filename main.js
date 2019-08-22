@@ -2,8 +2,8 @@
 // @name         PCT Debug Ads
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @description  Debug Ads locations and IDs in PCT platform news website.
+// @author       Alessandro Stopapto
 // @match        *://*/*
 // @grant        none
 // @noframes
