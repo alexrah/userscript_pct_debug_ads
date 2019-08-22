@@ -53,6 +53,7 @@
                 title.style.bottom = '0px';
                 title.style.width = '100%';
                 elem.style.position = 'relative';
+                elem.style.fontSize = '20px';
                 elem.appendChild(title);
             } else {
                 let title = elem.querySelector('.ads-debug');
