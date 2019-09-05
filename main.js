@@ -21,7 +21,7 @@
         ads_debug_toggler.style.position = 'fixed';
         ads_debug_toggler.style.top = '0';
         ads_debug_toggler.style.right = '0';
-        ads_debug_toggler.style.zIndex = '999999';
+        ads_debug_toggler.style.zIndex = '9999999999';
         window.document.body.appendChild(ads_debug_toggler);
         const class_this = this;
         ads_debug_toggler.addEventListener('click',function (e) {
