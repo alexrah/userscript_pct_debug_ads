@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PCT Debug Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Debug Ads locations and IDs in PCT platform news website.
 // @author       Alessandro Stopapto
 // @match https://www.atnews.it/"
@@ -31,6 +31,8 @@
 // @match https://*.presscommtech.com/"
 // @grant        none
 // @noframes
+// @downloadURL https://raw.githubusercontent.com/alexrah/userscript_pct_debug_ads/master/main.js
+// @updateURL https://raw.githubusercontent.com/alexrah/userscript_pct_debug_ads/master/main.js
 // ==/UserScript==
 
 (function() {
