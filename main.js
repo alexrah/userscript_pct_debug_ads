@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PCT Debug Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.8
 // @description  Debug Ads locations and IDs in PCT platform news website.
 // @author       Alessandro Stopapto
 // @match https://www.atnews.it/*
@@ -28,7 +28,16 @@
 // @match https://www.sardegnareporter.it/*
 // @match https://www.sportasti.it/*
 // @match https://www.sportlegnano.it/*
+// @match https://www.luccaindiretta.it/*
+// @match https://www.serchioindiretta.it/*
+// @match https://www.ilcuoioindiretta.it/*
+// @match https://www.calabriainforma.it/*
+// @match https://www.catanzaroinforma.it/*
+// @match https://www.crotoneinforma.it/*
+// @match https://www.lameziainforma.it/*
+// @match https://www.cosenzainforma.it/*
 // @match https://*.presscommtech.com/*
+// @match https://www.city24.it/*
 // @grant        none
 // @noframes
 // @downloadURL https://raw.githubusercontent.com/alexrah/userscript_pct_debug_ads/master/main.js
@@ -67,10 +76,19 @@
         const all_adunit = document.querySelectorAll('.edibanner, .adunit, .pct-banner');
         all_adunit.forEach(function (elem) {
             if (active) {
-                let title = document.createElement('span');
+                let title = document.createElement('div');
+                let target = elem.dataset.targeting;
                 title.innerHTML = elem.id;
+                if(typeof target !== 'undefined'){
+                    let sezione = document.createElement('p');
+                    sezione.style.fontSize = '13px';
+					          target = JSON.parse(target);
+                    sezione.innerHTML += `Sezione: ${target.sezione}`;
+                    title.appendChild(sezione);
+                }
                 title.classList.add('ads-debug');
                 title.style.display = 'block';
+                title.style.textAlign = 'center';
                 title.style.backgroundColor = 'red';
                 title.style.color = 'white';
                 title.style.fontWeight = 'bold';
@@ -82,10 +100,15 @@
                 elem.style.fontSize = '20px';
                 elem.style.display = 'block';
                 elem.style.minHeight = '20px';
+                elem.style.backgroundColor = 'rgba(255, 255, 0, 0.25)';
                 elem.appendChild(title);
             } else {
                 let title = elem.querySelector('.ads-debug');
                 title.parentNode.removeChild(title);
+                elem.style.backgroundColor = 'transparent';
+                if(elem.classList.contains('display-none')){
+                    elem.style.display = 'none';
+                }
             }
         })
 
@@ -98,3 +121,4 @@ if(window.test_ads === undefined) {
 }
 
 })();
+
