@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PCT Debug Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  Debug Ads locations and IDs in PCT platform news website.
 // @author       Alessandro Stopapto
 // @match https://www.atnews.it/*
@@ -82,7 +82,9 @@
                 if(typeof target !== 'undefined'){
                     let sezione = document.createElement('p');
                     sezione.style.fontSize = '13px';
-					          target = JSON.parse(target);
+                    sezione.style.padding = '0';
+                    sezione.style.wordBreak = 'break-all';
+					target = JSON.parse(target);
                     sezione.innerHTML += `Sezione: ${target.sezione}`;
                     title.appendChild(sezione);
                 }
@@ -121,4 +123,5 @@ if(window.test_ads === undefined) {
 }
 
 })();
+
 
